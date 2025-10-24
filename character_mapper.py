@@ -1,7 +1,6 @@
 from argparse import ArgumentParser
 from json import load
 from pathlib import Path
-from typing import cast
 
 
 def _normalise_map(map_: dict[str | int, str | int]) -> dict[str, str]:
@@ -43,7 +42,9 @@ if __name__ == "__main__":
         "Character Mapper", description="Map characters from one set to another"
     )
 
-    parser.add_argument("map", help="the path to the map to use", type=Path, default=None, nargs="?")
+    parser.add_argument(
+        "map", help="the path to the map to use", type=Path, default=None, nargs="?"
+    )
     parser.add_argument("string", help="the string to map", default=None, nargs="?")
 
     parsed = parser.parse_args()
